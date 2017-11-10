@@ -131,6 +131,7 @@ namespace ShoppingCartDemo
                         if (_cart[mapping[(userInput-1)]] == 0)
                         {
                             // TODO 3: Quantity is 0, remove item from the cart
+
                         }
                     }
 
@@ -215,18 +216,22 @@ namespace ShoppingCartDemo
             Console.WriteLine("Please choose from the following menu:");
 
             //TODO 2: Put this in a loop
-            String input="";
+            int input=0;
             do
             {
-                Console.WriteLine("1. {0}", _inventoryList[0].DisplayName());
-                Console.WriteLine("2. {0}", _inventoryList[2].DisplayName());
-                Console.WriteLine("3. {0}", _inventoryList[0].DisplayName());
-                Console.WriteLine("4. Finish purchasing");
+                for (int i =0; i<listSize; i++)
+                    Console.WriteLine((i+1)+". {0}", _inventoryList[i].DisplayName());
+
+//                Console.WriteLine("2. {0}", _inventoryList[2].DisplayName());
+//                Console.WriteLine("3. {0}", _inventoryList[0].DisplayName());
+
+
+                Console.WriteLine(listSize+1 + ". Finish purchasing");
 
                 Console.WriteLine("Which one would you like to purchase?");
 
-                input = Console.ReadLine();
-            } while (input != "4");
+                input = Convert.ToInt32 ( Console.ReadLine());
+            } while (input != listSize);
         }
 
         /// <summary>
