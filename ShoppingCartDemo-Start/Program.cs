@@ -29,8 +29,8 @@ namespace ShoppingCartDemo
                 DisplayMenuOptions();
                 userInput = GetPurchaseOption();
 
-                // TODO1: Uncomment to be able to respond to user input
-                // RespondToMenu(userInput);
+                // TODO 1: Uncomment to be able to respond to user input
+                RespondToMenu(userInput);
             } while (userInput != 4);
 
             // Display the summary of the transaction
@@ -126,11 +126,11 @@ namespace ShoppingCartDemo
                     //Update shopping cart
                     if(_cart.ContainsKey(mapping[(userInput - 1)]))
                     {
-                        // TODO3: Reduce the item's quantity in the cart
+                        // TODO 3: Reduce the item's quantity in the cart
 
                         if (_cart[mapping[(userInput-1)]] == 0)
                         {
-                            // TODO3: Quantity is 0, remove item from the cart
+                            // TODO 3: Quantity is 0, remove item from the cart
                         }
                     }
 
@@ -186,11 +186,11 @@ namespace ShoppingCartDemo
                     //Update shopping cart
                     if(_cart.ContainsKey(_inventoryList[(userInput - 1)]))
                     {
-                        // TODO3: Add the quantity to the same item
+                        // TODO 3: Add the quantity to the same item
                     }
                     else
                     {
-                        // TODO3: Add the item to the cart
+                        // TODO 3: Add the item to the cart
                     }
 
                     // Show the user what they purchased
@@ -214,15 +214,19 @@ namespace ShoppingCartDemo
             int listSize = _inventoryList.Count;
             Console.WriteLine("Please choose from the following menu:");
 
-            //TODO2: Put this in a loop
-            Console.WriteLine("1. {0}", _inventoryList[0].DisplayName());
-            Console.WriteLine("2. {0}", _inventoryList[2].DisplayName());
-            Console.WriteLine("3. {0}", _inventoryList[0].DisplayName());
-            Console.WriteLine("4. Finish purchasing");
+            //TODO 2: Put this in a loop
+            String input="";
+            do
+            {
+                Console.WriteLine("1. {0}", _inventoryList[0].DisplayName());
+                Console.WriteLine("2. {0}", _inventoryList[2].DisplayName());
+                Console.WriteLine("3. {0}", _inventoryList[0].DisplayName());
+                Console.WriteLine("4. Finish purchasing");
 
-            Console.WriteLine("Which one would you like to purchase?");
+                Console.WriteLine("Which one would you like to purchase?");
 
-            Console.ReadLine();
+                input = Console.ReadLine();
+            } while (input != "4");
         }
 
         /// <summary>
